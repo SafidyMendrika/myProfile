@@ -1,0 +1,138 @@
+:root {
+  --orange: #f66b15;
+  --lower-orange: #fa8943;
+}
+@font-face {
+  font-family: "ChmasFont";
+  src: url("../font/Christmas\ Gladness.ttf");
+}
+@font-face {
+  font-family: "bedda";
+  src: url("../font/Bedda.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.hidden-header {
+  width: 100%;
+  height: 100px;
+  padding: 1%;
+  display: none;
+  transition: 1s;
+}
+.hidden-header.active {
+  display: block;
+}
+header {
+  width: 100%;
+  padding: 1%;
+  font-family: "ChmasFont";
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-image: linear-gradient(
+    to right,
+    var(--orange),
+    var(--lower-orange)
+  );
+  color: #fff;
+  z-index: 2;
+}
+header.scrolled {
+  position: fixed;
+  top: 0px;
+}
+header div {
+  padding: 1%;
+}
+nav {
+  display: flex;
+  width: 60%;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 5;
+}
+nav div {
+  width: 20%;
+  width: fit-content;
+  height: fit-content;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 2%;
+  padding-bottom: 1%;
+  cursor: pointer;
+  transition: 1s;
+}
+nav div:hover {
+  border-bottom: 2px solid;
+  padding-bottom: 2%;
+}
+nav div.active {
+  border-bottom: 2px solid;
+  padding-bottom: 2%;
+}
+.hamburger::before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 5px;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: 1s;
+  top: 15px;
+}
+.hamburger::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 5px;
+  transition: 1s;
+  border-radius: 5px;
+  top: -15px;
+  background-color: #fff;
+}
+
+.hamburger {
+  position: relative;
+  width: 50px;
+  height: 5px;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: 0.5s;
+  display: none;
+}
+@media screen and (max-width: 700px) {
+  .hamburger {
+    display: block;
+  }
+  .hamburger.active {
+    background: none;
+  }
+  .hamburger.hamburger.active::after {
+    top: 0px;
+    transform: rotate(45deg);
+  }
+  .hamburger.hamburger.active::before {
+    transform: rotate(-45deg);
+    top: 0px;
+  }
+  nav {
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+    right: -1000px;
+    padding: 1%;
+    transition: 1s;
+    color: #000;
+    opacity: 0;
+    top: 72px;
+  }
+  nav.active {
+    opacity: 1;
+    height: fit-content;
+    right: 0px;
+  }
+}
