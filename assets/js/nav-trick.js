@@ -6,7 +6,7 @@ items[0].addEventListener("click", function () {
 for (let index = 1; index < items.length; index++) {
   items[index].addEventListener("click", function () {
     let text = items[index].innerHTML;
-    window.location.href = "../../pages/" + text + ".html";
+    window.location.href = "./pages/" + text + ".html";
   });
 }
 
